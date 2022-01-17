@@ -16,6 +16,7 @@ Final Setup and Configurations
 GRUB EFI Bootloader Install & Check
 "
 source /root/ArchTitus/setup.conf
+genfstab -U / >> /etc/fstab
 if [[ -d "/sys/firmware/efi" ]]; then
     grub-install --efi-directory=/boot ${DISK}
 fi
@@ -80,7 +81,7 @@ sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /et
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 rm -r /root/ArchTitus
-rm -r /home/$username/ArchTitus
+rm -r /home/$USERNAME/ArchTitus
 
 # Replace in the same state
 cd $pwd
